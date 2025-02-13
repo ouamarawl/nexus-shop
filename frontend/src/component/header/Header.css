@@ -3,24 +3,28 @@
     justify-content: space-around;
     text-align: center;
     margin: 1%;
-    border-bottom: solid black 1px;
+    background-color: rgb(35, 34, 29);
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 0%;
+    padding-top:1% ;
     
 }
 .navbar li,a{
-    margin: 2px;
     text-decoration: none;   
+    color: #FFD43B;
+    margin: 5px 10px 5px 10px;
 }
 .navbar img{
-    height: 2rem;
-    width: 2rem;
+    height: 3rem;
+    width: 3rem;
     border-radius: 100%;
     margin-bottom: 1%;
-    /* margin: 2rem; */
+    
 }
 .list-navbar {
     display: flex;
     justify-content: space-between;
     text-align: center;
-    /* margin: 1rem;     */
     margin-bottom: 1%;
 }

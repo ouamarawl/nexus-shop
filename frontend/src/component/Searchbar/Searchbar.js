@@ -1,38 +1,38 @@
-import React from 'react';
-import './Searchbar.css';
-import Fuse from 'fuse.js';
-import  { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import "./Searchbar.css";
+import Fuse from "fuse.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"; // ✅ Ajout de l'icône
 
 function Searchbar() {
-   const [produits, setProduits] = useState([]);
-    // Fonction pour récupérer les produits depuis l'API
-    useEffect(() => {
-      fetch("http://localhost:5050/api/produits")
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Produits chargés :", data);
-          setProduits(data);
-        })
-        .catch((error) => console.error("Erreur de chargement :", error));
-    }, []); 
-  const search = () => {
-    const Recherche = document.getElementById('input').value.trim(); 
-    const Resultas = document.getElementById('partie_de_resultas');
-    Resultas.innerHTML = ""; 
+  const [produits, setProduits] = useState([]);
 
-    // Configuration de Fuse.js
+  useEffect(() => {
+    fetch("http://localhost:5050/api/produits")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Produits chargés :", data);
+        setProduits(data);
+      })
+      .catch((error) => console.error("Erreur de chargement :", error));
+  }, []);
+
+  const search = () => {
+    const Recherche = document.getElementById("input").value.trim();
+    const Resultas = document.getElementById("partie_de_resultas");
+    Resultas.innerHTML = "";
+
     const options = {
-      keys: ['titre'], // Rechercher uniquement dans les titres des produits
-      threshold: 0.4, // Tolérance pour les fautes (0 : strict, 1 : très tolérant)
+      keys: ["titre"],
+      threshold: 0.4,
     };
 
     const fuse = new Fuse(produits, options);
-    const resultats = fuse.search(Recherche); 
+    const resultats = fuse.search(Recherche);
 
     if (resultats.length > 0) {
       resultats.forEach(({ item }) => {
-      
-        const productCard = document.createElement('div');
+        const productCard = document.createElement("div");
         productCard.innerHTML = `
           <div class="container_card">
             <h3>${item.title}</h3>
@@ -47,18 +47,15 @@ function Searchbar() {
       Resultas.textContent = "Aucun résultat trouvé pour cette recherche.";
     }
   };
+
   return (
-    <div className='search_bar' >
-        <div className='container_search_bar'>
-        <div className='partie_de_recheres'>
-         <input id='input' type="search" placeholder="search"/>
-         {/* <button id='btn' onClick={search}><p id='text_btn'>Rechercher</p></button> */}
-        </div> 
-        <div className='partie_de_resultas' id='partie_de_resultas'>
-        </div>
-        </div>
+    <div className="search_bar">
+      <input type="search" id="input" placeholder="search" />
+      <button onClick={search}>
+        <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#FFD43B" }} />
+      </button>
     </div>
-  )
+  );
 }
 
-export default Searchbar
+export default Searchbar;

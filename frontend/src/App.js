@@ -6,6 +6,7 @@ import Panier from './pages/panier/Panier';
 import About from './pages/about/About';
 import Header from './component/header/Header';
 import Footer from './component/footer/Footer';
+import Admin from './pages/Admin_dashboard/Admin';
 function App() {
   return (
     <div className="App">
@@ -15,6 +16,7 @@ function App() {
            <Route path="/" element={<Home/>} />
            <Route path="/about" element={<About/>} />
            <Route path="/panier" element={<Panier/>} />
+           <Route path="/admin" element={<Admin/>} />
          </Routes>
          <Footer/>
       </Router>
