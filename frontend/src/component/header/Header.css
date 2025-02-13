@@ -1,0 +1,26 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 1%;
+    border-bottom: solid black 1px;
+    
+}
+.navbar li,a{
+    margin: 2px;
+    text-decoration: none;   
+}
+.navbar img{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100%;
+    margin-bottom: 1%;
+    /* margin: 2rem; */
+}
+.list-navbar {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    /* margin: 1rem;     */
+    margin-bottom: 1%;
+}
