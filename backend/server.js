@@ -11,7 +11,7 @@ const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "base_de_donnees",
+    database: "nexus-data",
 });
 
 // Connexion à MySQL
@@ -121,89 +121,259 @@ app.delete("/api/produits/:id", checkDBConnection, (req, res) => {
 
 // gestion des utilisateurs 
 
-// Route pour récupérer tous les utilisateurs
-app.get("/api/users", checkDBConnection, (req, res) => {
-    db.query("SELECT * FROM users", (err, result) => {
+// Route pour récupérer tous les administrateurs
+app.get("/api/admin_membre", checkDBConnection, (req, res) => {
+    db.query("SELECT * FROM admin_membre", (err, result) => {
         if (err) {
-            console.error("Erreur lors de la récupération des utilisateurs:", err);
+            console.error("Erreur lors de la récupération des administrateurs:", err);
             return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
         }
         res.status(200).json(result);
     });
 });
 
-// Route pour récupérer un utilisateur par ID
-app.get("/api/users/:id", checkDBConnection, (req, res) => {
+// Route pour récupérer un administrateur par ID
+app.get("/api/admin_membre/:id", checkDBConnection, (req, res) => {
     const { id } = req.params;
 
-    db.query("SELECT * FROM users WHERE id = ?", [id], (err, result) => {
+    db.query("SELECT * FROM admin_membre WHERE id = ?", [id], (err, result) => {
         if (err) {
-            console.error("Erreur lors de la récupération de l'utilisateur:", err);
+            console.error("Erreur lors de la récupération de l'administrateur:", err);
             return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
         }
         if (result.length === 0) {
-            return res.status(404).json({ message: "Utilisateur non trouvé" });
+            return res.status(404).json({ message: "Administrateur non trouvé" });
         }
         res.status(200).json(result[0]);
     });
 });
 
-// Route pour ajouter un utilisateur
-app.post("/api/users", checkDBConnection, (req, res) => {
-    const { name, email, password } = req.body;
+// Route pour ajouter un administrateur
+app.post("/api/admin_membre", checkDBConnection, (req, res) => {
+    const { nom, prenom, email, numero, mot_de_passe } = req.body;
 
-    if (!name || !email || !password) {
+    if (!nom || !prenom || !email || !numero || !mot_de_passe) {
         return res.status(400).json({ message: "Tous les champs sont requis" });
     }
 
     db.query(
-        "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
-        [name, email, password],
+        "INSERT INTO admin_membre (nom, prenom, email, numero, mot_de_passe) VALUES (?, ?, ?, ?, ?)",
+        [nom, prenom, email, numero, mot_de_passe],
         (err, result) => {
             if (err) {
-                console.error("Erreur lors de l'ajout de l'utilisateur:", err);
+                console.error("Erreur lors de l'ajout de l'administrateur:", err);
                 return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
             }
-            res.status(201).json({ message: "Utilisateur ajouté avec succès !" });
+            res.status(201).json({ message: "Administrateur ajouté avec succès !" });
         }
     );
 });
 
-// Route pour modifier un utilisateur
-app.put("/api/users/:id", checkDBConnection, (req, res) => {
+// Route pour modifier un administrateur
+app.put("/api/admin_membre/:id", checkDBConnection, (req, res) => {
     const { id } = req.params;
-    const { name, email, password } = req.body;
+    const { nom, prenom, email, numero, mot_de_passe } = req.body;
 
-    if (!name || !email || !password) {
+    if (!nom || !prenom || !email || !numero || !mot_de_passe) {
         return res.status(400).json({ message: "Tous les champs sont requis" });
     }
 
     db.query(
-        "UPDATE users SET name = ?, email = ?, password = ? WHERE id = ?",
-        [name, email, password, id],
+        "UPDATE admin_membre SET nom = ?, prenom = ?, email = ?, numero = ?, mot_de_passe = ? WHERE id = ?",
+        [nom, prenom, email, numero, mot_de_passe, id],
         (err, result) => {
             if (err) {
-                console.error("Erreur lors de la modification de l'utilisateur:", err);
+                console.error("Erreur lors de la modification de l'administrateur:", err);
                 return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
             }
-            res.status(200).json({ message: "Utilisateur modifié avec succès !" });
+            res.status(200).json({ message: "Administrateur modifié avec succès !" });
         }
     );
 });
 
-// Route pour supprimer un utilisateur
-app.delete("/api/users/:id", checkDBConnection, (req, res) => {
+// Route pour supprimer un administrateur
+app.delete("/api/admin_membre/:id", checkDBConnection, (req, res) => {
     const { id } = req.params;
 
-    db.query("DELETE FROM users WHERE id = ?", [id], (err, result) => {
+    db.query("DELETE FROM admin_membre WHERE id = ?", [id], (err, result) => {
         if (err) {
-            console.error("Erreur lors de la suppression de l'utilisateur:", err);
+            console.error("Erreur lors de la suppression de l'administrateur:", err);
             return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
         }
-        res.status(200).json({ message: "Utilisateur supprimé avec succès !" });
+        res.status(200).json({ message: "Administrateur supprimé avec succès !" });
     });
 });
 
+
+// gestion de la table categories 
+
+// Route pour récupérer toutes les catégories
+app.get("/api/categories", checkDBConnection, (req, res) => {
+    db.query("SELECT * FROM categories", (err, result) => {
+        if (err) {
+            console.error("Erreur lors de la récupération des catégories:", err);
+            return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
+        }
+        res.status(200).json(result);
+    });
+});
+
+// Route pour récupérer une catégorie par ID
+app.get("/api/categories/:id", checkDBConnection, (req, res) => {
+    const { id } = req.params;
+
+    db.query("SELECT * FROM categories WHERE id = ?", [id], (err, result) => {
+        if (err) {
+            console.error("Erreur lors de la récupération de la catégorie:", err);
+            return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
+        }
+        if (result.length === 0) {
+            return res.status(404).json({ message: "Catégorie non trouvée" });
+        }
+        res.status(200).json(result[0]);
+    });
+});
+
+// Route pour ajouter une catégorie
+app.post("/api/categories", checkDBConnection, (req, res) => {
+    const { nom, description } = req.body;
+
+    if (!nom || !description) {
+        return res.status(400).json({ message: "Tous les champs sont requis" });
+    }
+
+    db.query(
+        "INSERT INTO categories (nom, description) VALUES (?, ?)",
+        [nom, description],
+        (err, result) => {
+            if (err) {
+                console.error("Erreur lors de l'ajout de la catégorie:", err);
+                return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
+            }
+            res.status(201).json({ message: "Catégorie ajoutée avec succès !" });
+        }
+    );
+});
+
+// Route pour modifier une catégorie
+app.put("/api/categories/:id", checkDBConnection, (req, res) => {
+    const { id } = req.params;
+    const { nom, description } = req.body;
+
+    if (!nom || !description) {
+        return res.status(400).json({ message: "Tous les champs sont requis" });
+    }
+
+    db.query(
+        "UPDATE categories SET nom = ?, description = ? WHERE id = ?",
+        [nom, description, id],
+        (err, result) => {
+            if (err) {
+                console.error("Erreur lors de la modification de la catégorie:", err);
+                return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
+            }
+            res.status(200).json({ message: "Catégorie modifiée avec succès !" });
+        }
+    );
+});
+
+// Route pour supprimer une catégorie
+app.delete("/api/categories/:id", checkDBConnection, (req, res) => {
+    const { id } = req.params;
+
+    db.query("DELETE FROM categories WHERE id = ?", [id], (err, result) => {
+        if (err) {
+            console.error("Erreur lors de la suppression de la catégorie:", err);
+            return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
+        }
+        res.status(200).json({ message: "Catégorie supprimée avec succès !" });
+    });
+});
+
+
+// gestion du panier 
+// Route pour récupérer tous les paniers
+app.get("/api/panier", checkDBConnection, (req, res) => {
+    db.query("SELECT * FROM panier", (err, result) => {
+        if (err) {
+            console.error("Erreur lors de la récupération des paniers:", err);
+            return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
+        }
+        res.status(200).json(result);
+    });
+});
+
+// Route pour récupérer un panier par ID
+app.get("/api/panier/:id", checkDBConnection, (req, res) => {
+    const { id } = req.params;
+
+    db.query("SELECT * FROM panier WHERE id = ?", [id], (err, result) => {
+        if (err) {
+            console.error("Erreur lors de la récupération du panier:", err);
+            return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
+        }
+        if (result.length === 0) {
+            return res.status(404).json({ message: "Panier non trouvé" });
+        }
+        res.status(200).json(result[0]);
+    });
+});
+
+// Route pour ajouter un panier
+app.post("/api/panier", checkDBConnection, (req, res) => {
+    const { admin_membre_id, produit_id, quantite, prix_unitaire, prix_total, date_ajout } = req.body;
+
+    if (!admin_membre_id || !produit_id || !quantite || !prix_unitaire || !prix_total || !date_ajout) {
+        return res.status(400).json({ message: "Tous les champs sont requis" });
+    }
+
+    db.query(
+        "INSERT INTO panier (admin_membre_id, produit_id, quantite, prix_unitaire, prix_total, date_ajout) VALUES (?, ?, ?, ?, ?, ?)",
+        [admin_membre_id, produit_id, quantite, prix_unitaire, prix_total, date_ajout],
+        (err, result) => {
+            if (err) {
+                console.error("Erreur lors de l'ajout du panier:", err);
+                return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
+            }
+            res.status(201).json({ message: "Panier ajouté avec succès !" });
+        }
+    );
+});
+
+// Route pour modifier un panier
+app.put("/api/panier/:id", checkDBConnection, (req, res) => {
+    const { id } = req.params;
+    const { admin_membre_id, produit_id, quantite, prix_unitaire, prix_total, date_ajout } = req.body;
+
+    if (!admin_membre_id || !produit_id || !quantite || !prix_unitaire || !prix_total || !date_ajout) {
+        return res.status(400).json({ message: "Tous les champs sont requis" });
+    }
+
+    db.query(
+        "UPDATE panier SET admin_membre_id = ?, produit_id = ?, quantite = ?, prix_unitaire = ?, prix_total = ?, date_ajout = ? WHERE id = ?",
+        [admin_membre_id, produit_id, quantite, prix_unitaire, prix_total, date_ajout, id],
+        (err, result) => {
+            if (err) {
+                console.error("Erreur lors de la modification du panier:", err);
+                return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
+            }
+            res.status(200).json({ message: "Panier modifié avec succès !" });
+        }
+    );
+});
+
+// Route pour supprimer un panier
+app.delete("/api/panier/:id", checkDBConnection, (req, res) => {
+    const { id } = req.params;
+
+    db.query("DELETE FROM panier WHERE id = ?", [id], (err, result) => {
+        if (err) {
+            console.error("Erreur lors de la suppression du panier:", err);
+            return res.status(500).json({ message: "Erreur serveur", erreur: err.message });
+        }
+        res.status(200).json({ message: "Panier supprimé avec succès !" });
+    });
+});
 
 
 
