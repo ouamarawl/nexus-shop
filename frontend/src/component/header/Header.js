@@ -9,7 +9,9 @@ import { faHouse, faAddressCard, faUser, faCartShopping } from '@fortawesome/fre
 function Header() {
   return (
     <div className='navbar'>
+      <p>Nexus
       <img src={nexus} alt='nexus' />
+      Shope</p>
       <div className='list-navbar' style={{ textDecoration: 'none' }}>
         <Link to='/'>
           <li>
