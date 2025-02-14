@@ -28,3 +28,17 @@
 
 }
   
+@keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px); /* Starts 20px below its original position */
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0); /* Moves to its original position */
+    }
+  }
+  
+  .fade-up {
+    animation: fadeUp 1s ease-out;
+  }

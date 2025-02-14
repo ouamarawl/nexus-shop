@@ -162,7 +162,7 @@ function Home() {
   }, []);
 
   return (
-    <div>
+    <div className="amine">
       <div className="section-categories" data-aos="fade-up">
         <h1>Catégories</h1>
         <div className="container-categories">
