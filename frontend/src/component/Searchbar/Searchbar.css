@@ -1,0 +1,27 @@
+.search_bar {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+}
+input,button{
+ background-color: rgb(35, 34, 29);
+ border: solid#FFD43B 1px;
+ border-radius: 10px;
+ height: 60%;
+}
+input {
+  width: 80% ;
+  margin-right: 2%;
+  color: #FFD43B;
+}
+button {
+  width: 20%;
+  margin-left:2% ;
+}
+input::placeholder {
+  color: rgba(255, 212, 59, 0.7); 
+  font-size: 25px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}

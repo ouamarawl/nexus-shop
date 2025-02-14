@@ -1,0 +1,30 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin: 1%;
+    background-color: rgb(35, 34, 29);
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-top: 0%;
+    padding-top:1% ;
+    
+}
+.navbar li,a{
+    text-decoration: none;   
+    color: #FFD43B;
+    margin: 5px 10px 5px 10px;
+}
+.navbar img{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 100%;
+    margin-bottom: 1%;
+    
+}
+.list-navbar {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-bottom: 1%;
+}

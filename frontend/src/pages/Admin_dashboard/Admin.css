@@ -1,0 +1,9 @@
+.admin {  
+  /* background-color: #c9d6ff; */
+  /* background: linear-gradient(to right, rgb(35, 34, 29), #FFD43B); */
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  flex-direction: column;
+  height: 100vh;
+  }

@@ -1,0 +1,74 @@
+  
+  .card-produit {
+    width: 250px; /* Taille fixe pour éviter les cartes trop grandes */
+    background-color: white; /* Fond sombre */
+    color: #FFD43B;
+    border: 2px solid #FFD43B;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(255, 212, 59, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card-produit:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-produit img {
+    width: 100%; /* L’image prend toute la largeur de la carte */
+    max-height: 150px; /* Limite la hauteur */
+    object-fit: cover; /* Coupe l'image pour qu'elle s'adapte */
+    border-radius: 8px;
+    display: block; /* Évite les marges blanches */
+  }
+  
+  .card-produit h3,
+  .card-produit p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color:#222;
+  }
+  
+  .card-produit p{
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+/* card-category */
+  
+.card-category {
+  width: 250px; /* Taille fixe pour éviter les cartes trop grandes */
+  background-color: white; /* Fond sombre */
+  color: #FFD43B;
+  border: 2px solid #FFD43B;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(255, 212, 59, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-category:hover {
+  transform: scale(1.05);
+}
+
+.card-category img {
+  width: 100%; /* L’image prend toute la largeur de la carte */
+  max-height: 150px; /* Limite la hauteur */
+  object-fit: cover; /* Coupe l'image pour qu'elle s'adapte */
+  border-radius: 8px;
+  display: block; /* Évite les marges blanches */
+}
+
+.card-category h3,
+.card-category p {
+  margin: 5px 0;
+  font-size: 1rem;
+  color:#222;
+}
+
+.card-category p{
+  font-weight: bold;
+  font-size: 1.1rem;
+}
