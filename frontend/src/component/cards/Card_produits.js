@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cards.css';
+import './cards.css';
 
 function Card_produits(props) {
   console.log("Image reçue :", props.image); // Vérifie si l'image est bien transmise

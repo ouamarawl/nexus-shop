@@ -1,5 +1,5 @@
 import React from "react";
-import './Cards.css'
+import './cards.css'
 function Card_categories({ titre, image }) {
   return (
     <div className="card-category">
