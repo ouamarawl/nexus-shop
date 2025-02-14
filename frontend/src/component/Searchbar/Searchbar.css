@@ -9,19 +9,22 @@ input,button{
  border-radius: 10px;
  height: 60%;
 }
-input {
+.search_bar input {
   width: 80% ;
   margin-right: 2%;
   color: #FFD43B;
 }
-button {
+.search_bar button {
   width: 20%;
   margin-left:2% ;
 }
-input::placeholder {
+.search-input::placeholder {
   color: rgba(255, 212, 59, 0.7); 
   font-size: 25px;
   display: flex;
   text-align: center;
   justify-content: center;
 }
+
+
+

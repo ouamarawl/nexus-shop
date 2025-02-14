@@ -154,7 +154,7 @@ const produits = [
 
 function Home() {
   return (
-    <div>
+    <div className="Home">
       <div className="section-categories">
         <h1>Catégories</h1>
         <div className="container-categories">
