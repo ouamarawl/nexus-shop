@@ -1,0 +1,15 @@
+.panier {
+    display: block;
+    flex-direction: column; /* Aligner les éléments en colonne */
+    align-items: center; /* Centrer horizontalement */
+    justify-content: center; /* Centrer verticalement si nécessaire */
+    min-height: 100vh; /* Assure que le contenu est centré sur toute la hauteur de l'écran */
+    text-align: center; /* Centrer le texte */
+}
+
+.panier-section-produits {
+    margin: 10%;
+}
+/* .panier h1, h2, h3, p {
+    font-family: "Playwrite AU SA", serif;
+  } */

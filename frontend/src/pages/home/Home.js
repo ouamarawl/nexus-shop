@@ -1,12 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Card_produits from "../../component/cards/Card_produits";
 import "./Home.css";
 import Card_categories from "../../component/cards/Card_ctaegories";
-
-import AOS from "aos";
-import "aos/dist/aos.css"; 
-
-
 
 const categories = [
   { id: 1, titre: "Montres", image: "https://picsum.photos/300/200?random=21" },
@@ -156,14 +151,11 @@ const produits = [
     prix: 5000,
   },
 ];
-function Home() {
-  useEffect(() => {
-    AOS.init({ duration: 1000 }); 
-  }, []);
 
+function Home() {
   return (
-    <div className="amine">
-      <div className="section-categories" data-aos="fade-up">
+    <div className="Home">
+      <div className="section-categories">
         <h1>Catégories</h1>
         <div className="container-categories">
           {categories.map((categorie) => (
@@ -176,7 +168,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="section-produits" data-aos="fade-up">
+      <div className="section-produits">
         <h1>Nos Produits</h1>
         <div className="container-produits">
           {produits.map((produit) => (
@@ -193,6 +185,5 @@ function Home() {
     </div>
   );
 }
-
 
 export default Home;
