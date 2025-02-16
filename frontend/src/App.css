@@ -2,6 +2,10 @@ body{
   background-color: #f0d263;
   /* background-color: #FFD43B; */
 }
+body h1, h2, h3, p {
+  font-family: "Playwrite AU SA", serif;
+}
+
 .App {
   text-align: center;
 }
