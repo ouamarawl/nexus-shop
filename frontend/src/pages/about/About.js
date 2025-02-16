@@ -12,7 +12,6 @@ function About() {
     <div className="about-container">
       <div className="about-header" data-aos="fade-down">
         <h1>About Nexus Shope</h1>
-        <p>wwwwwww</p>
         <p>Your one-stop shop for quality products at unbeatable prices.</p>
       </div>
       <div className="about-content">
