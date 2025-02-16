@@ -72,3 +72,150 @@
   font-weight: bold;
   font-size: 1.1rem;
 }
+/* 2 container-card-principale */
+/* Conteneur principal */
+.container-card-panier {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+}
+
+/* Partie supérieure */
+.classe-superieur {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.partie-L {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.image-produit {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.enfant-l {
+  display: flex;
+  flex-direction: column;
+}
+
+.titre {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.disponibilite {
+  color: green;
+}
+
+.logo {
+  font-size: 14px;
+  color: gray;
+}
+
+/* Prix */
+.partie-R .prix {
+  font-size: 18px;
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+/* Partie inférieure */
+.classe-inferieur {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* Bouton supprimer */
+.supprimer {
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.supprimer:hover {
+  background-color: #d32f2f;
+}
+
+/* Boutons quantité */
+.button-dajout {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-dajout button {
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button-dajout button:hover {
+  background-color: #0d47a1;
+}
+
+.quantite {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+/* 3 css card-resume-panier */
+
+.container-card-resume-panier {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  
+  
+}
+.prix-totale {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.achter button{
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 50%;
+  height: 40px;
+  margin-top: 2%;
+}
+.achter button:hover {  /* ❌ Enlever l'espace après "button" */
+  background-color: darkgreen; /* Change la couleur au survol */
+  transform: scale(1.05); /* Légère augmentation de taille */
+}
+.container-card-resume-panier p,h3,h2{
+   font-size: 22px;
+   margin-bottom: 2%;
+}
