@@ -7,16 +7,18 @@ input,button{
  background-color: rgb(35, 34, 29);
  border: solid#FFD43B 1px;
  border-radius: 10px;
- height: 60%;
+
 }
-input {
+#input {
   width: 80% ;
   margin-right: 2%;
   color: #FFD43B;
+  height: 2rem;
 }
-button {
+.search_bar button {
   width: 20%;
   margin-left:2% ;
+  height: 2rem;
 }
 input::placeholder {
   color: rgba(255, 212, 59, 0.7); 

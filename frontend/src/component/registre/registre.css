@@ -205,3 +205,10 @@
 .container.active .toggle-right {
     transform: translateX(200%);
 }
+
+.registre input::placeholder {
+    color: gray;
+    font-style: italic;
+    opacity: 0.8;
+}
+  

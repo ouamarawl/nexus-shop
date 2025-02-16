@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import nexus from "../Assets/nexus.jpg";
 import Searchbar from "../Searchbar/Searchbar";
@@ -8,6 +8,17 @@ import "./Header.css";
 
 function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768); // Vérifie si l'écran est petit
+
+  // Met à jour la valeur isMobile lorsque la taille de l'écran change
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="navbar">
@@ -38,7 +49,8 @@ function Header() {
         </Link>
       </div>
 
-      <Searchbar />
+      {/* Affiche la barre de recherche seulement si ce n'est pas un mobile */}
+      {!isMobile && <Searchbar />}
 
       <div className="sidebar-toggle" onClick={() => setSidebarOpen(true)}>
         <FontAwesomeIcon icon={faBars} />
@@ -49,10 +61,12 @@ function Header() {
           <FontAwesomeIcon icon={faTimes} />
         </div>
 
-        {/* Searchbar inside Sidebar */}
-        <div className="sidebar-search">
-          <Searchbar />
-        </div>
+        {/* Searchbar affichée uniquement dans la sidebar sur mobile */}
+        {isMobile && (
+          <div className="sidebar-search">
+            <Searchbar />
+          </div>
+        )}
 
         <ul>
           <li>
