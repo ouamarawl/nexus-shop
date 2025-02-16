@@ -1,0 +1,233 @@
+.about-container {
+    font-family: 'Arial', sans-serif;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+    background-color: #23221d;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+    padding-top: 120px;
+    margin-top: 100px;
+  }
+  
+  .about-header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeIn 2s ease-out;
+    position: relative;
+  }
+  
+  .about-header:hover {
+    transform: translateY(-10px);
+  }
+  
+  .about-header h1 {
+    font-size: 48px;
+    color: #f0d263;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .about-header p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.8;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .about-header:hover h1 {
+    color: #FFD43B;
+    transform: scale(1.05);
+  }
+  
+  .about-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 0 40px;
+    animation: fadeIn 3s ease-out;
+  }
+  
+  .about-section {
+    padding: 40px;
+    border-radius: 12px;
+    border: 1px solid black;
+    background-color: #f0d263;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    width: 48%;
+    transition: 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  .about-section:hover {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    transition: all 0.3s ease-out;
+    background-color: #ffdf69;
+  }
+  
+  .about-section h2 {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 20px;
+    position: relative;
+    transition: transform 0.3s ease-out, color 0.3s ease;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .about-section p,
+  .about-section ul {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+  }
+  
+  .about-section:hover h2 {
+    color: #000;
+    transform: translateX(15px);
+    text-shadow: 0 0 15px #ffd43b;
+  }
+  
+  .about-footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 16px;
+    color: #777;
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
+  }
+  
+  .about-footer:hover {
+    color: #FFD43B;
+    cursor: pointer;
+  }
+  
+  .about-footer p {
+    margin: 0;
+    font-weight: 500;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 8px #FFD43B, 0 0 15px #FFD43B;
+    }
+    50% {
+      text-shadow: 0 0 25px #FFD43B, 0 0 50px #FFD43B;
+    }
+    100% {
+      text-shadow: 0 0 8px #FFD43B, 0 0 15px #FFD43B;
+    }
+  }
+  
+  .about-section h2 {
+    animation: glow 3s infinite alternate;
+  }
+  
+  .about-section ul li {
+    transition: transform 0.3s ease, color 0.3s ease;
+    list-style: none;
+    color: #666;
+  }
+  
+  .about-section ul li:hover {
+    transform: translateX(12px);
+    color: #000;
+    list-style: none;
+  }
+  
+  .about-section img {
+    width: 100%;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+  }
+  
+  .about-section img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  }
+  
+  @media (max-width: 1024px) {
+    .about-container {
+      padding: 20px;
+    }
+  
+    .about-header h1 {
+      font-size: 36px;
+    }
+  
+    .about-content {
+      padding: 0 20px;
+      gap: 30px;
+    }
+  
+    .about-section {
+      width: 48%;
+      padding: 30px;
+    }
+  
+    .about-footer {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about-header h1 {
+      font-size: 28px;
+    }
+  
+    .about-header p {
+      font-size: 16px;
+    }
+  
+    .about-content {
+      flex-direction: column;
+      gap: 30px;
+      padding: 0 20px;
+    }
+  
+    .about-section {
+      width: 100%;
+      padding: 20px;
+    }
+  
+    .about-footer {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .about-header h1 {
+      font-size: 24px;
+    }
+  
+    .about-header p {
+      font-size: 14px;
+    }
+  
+    .about-section {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+  

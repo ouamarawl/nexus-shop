@@ -5,6 +5,7 @@
     justify-content: center; /* Centrer verticalement si nécessaire */
     min-height: 100vh; /* Assure que le contenu est centré sur toute la hauteur de l'écran */
     text-align: center; /* Centrer le texte */
+    padding-top: 100px;
 }
 
 .panier-section-produits {

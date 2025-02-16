@@ -1,30 +1,110 @@
 .navbar {
     display: flex;
-    justify-content: space-around;
-    text-align: center;
-    margin: 1%;
-    background-color: rgb(35, 34, 29);
-    margin-left: 0%;
-    margin-right: 0%;
-    margin-top: 0%;
-    padding-top:1% ;
-    
-}
-.navbar li,a{
-    text-decoration: none;   
-    color: #FFD43B;
-    margin: 5px 10px 5px 10px;
-}
-.navbar img{
-    height: 3rem;
-    width: 3rem;
-    border-radius: 100%;
-    margin-bottom: 1%;
-    
-}
-.list-navbar {
-    display: flex;
+    align-items: center;
     justify-content: space-between;
-    text-align: center;
-    margin-bottom: 1%;
-}
+    background-color: #23221d;
+    padding: 10px 5%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #FFD43B;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .logo img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin: 0 10px;
+    border: 2px solid #FFD43B;
+  }
+  
+  .list-navbar {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .list-navbar li {
+    list-style: none;
+    color: #FFD43B;
+    font-size: 18px;
+  }
+  
+  .list-navbar a {
+    text-decoration: none;
+  }
+  
+  .sidebar-toggle {
+    font-size: 24px;
+    color: #FFD43B;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #23221d;
+    transition: left 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .sidebar-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    color: #FFD43B;
+    cursor: pointer;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .sidebar ul li {
+    padding: 15px;
+  }
+  
+  .sidebar ul li a {
+    color: #FFD43B;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .sidebar ul li a:hover {
+    color: #f1c40f;
+  }
+  .sidebar-search {
+    padding: 15px;
+    border-bottom: 1px solid #FFD43B;
+  }
+  
+  @media (max-width: 768px) {
+    .list-navbar {
+      display: none;
+    }
+    .sidebar-toggle {
+      display: block;
+    }
+  }
+  

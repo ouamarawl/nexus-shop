@@ -1,6 +1,9 @@
 .Home h1 {
   margin: 10px;
 }
+.Home{
+    padding-top: 80px;
+}
 .section-produits {  
     margin: 2% 10% 2% 10%;
 }

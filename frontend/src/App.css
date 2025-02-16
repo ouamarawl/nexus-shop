@@ -2,10 +2,13 @@ body{
   background-color: #f0d263;
   /* background-color: #FFD43B; */
 }
+<<<<<<< HEAD
 body h1, h2, h3, p {
   font-family: "Playwrite AU SA", serif;
 }
 
+=======
+>>>>>>> 67f78dcf932716a76ad89ba3bd1b3623fcdace9c
 .App {
   text-align: center;
 }

@@ -49,13 +49,12 @@ function Searchbar() {
   };
 
   return (
-<div className="search_bar">
-  <input type="search" className="search-input" placeholder="Search..." />
-  <button onClick={search}>
-    <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#FFD43B" }} />
-  </button>
-</div>
-
+    <div className="search_bar">
+      <input type="search" id="input" placeholder="search" />
+      <button onClick={search}>
+        <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: "#FFD43B" }} />
+      </button>
+    </div>
   );
 }
 
