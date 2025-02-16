@@ -5,7 +5,6 @@ import Card_produits from "../../component/cards/Card_produits";
 import React, { useEffect, useState } from "react";
 
 function Panier() {
-    // ✅ Déplacement des hooks à l'intérieur du composant
     const [produits, setProduits] = useState([]);
   
     useEffect(() => {
